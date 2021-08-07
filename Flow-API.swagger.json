@@ -1,0 +1,1283 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Default title",
+    "description": "",
+    "version": "1.0"
+  },
+  "host": "emea.api.flow.microsoft.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/providers/Microsoft.ProcessSimple/environments/{environment_name}/flows/{flow_name}/runs": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Get Flow Runs",
+        "description": "Get run history of specified flow in specified environment",
+        "operationId": "GetFlowRuns",
+        "parameters": [
+          {
+            "name": "environment_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "flow_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "default": "2016-11-01"
+          }
+        ]
+      }
+    },
+    "/providers/Microsoft.ProcessSimple/environments/{environment}/flows/{flowid}/runs/{runid}": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "type"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "startTime": {
+                      "type": "string",
+                      "description": "startTime"
+                    },
+                    "endTime": {
+                      "type": "string",
+                      "description": "endTime"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "correlation": {
+                      "type": "object",
+                      "properties": {
+                        "clientTrackingId": {
+                          "type": "string",
+                          "description": "clientTrackingId"
+                        },
+                        "clientKeywords": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "clientKeywords"
+                        }
+                      },
+                      "description": "correlation"
+                    },
+                    "trigger": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        },
+                        "inputsLink": {
+                          "type": "object",
+                          "properties": {
+                            "uri": {
+                              "type": "string",
+                              "description": "uri"
+                            },
+                            "contentVersion": {
+                              "type": "string",
+                              "description": "contentVersion"
+                            },
+                            "contentSize": {
+                              "type": "integer",
+                              "format": "int32",
+                              "description": "contentSize"
+                            },
+                            "contentHash": {
+                              "type": "object",
+                              "properties": {
+                                "algorithm": {
+                                  "type": "string",
+                                  "description": "algorithm"
+                                },
+                                "value": {
+                                  "type": "string",
+                                  "description": "value"
+                                }
+                              },
+                              "description": "contentHash"
+                            }
+                          },
+                          "description": "inputsLink"
+                        },
+                        "outputsLink": {
+                          "type": "object",
+                          "properties": {
+                            "uri": {
+                              "type": "string",
+                              "description": "uri"
+                            },
+                            "contentVersion": {
+                              "type": "string",
+                              "description": "contentVersion"
+                            },
+                            "contentSize": {
+                              "type": "integer",
+                              "format": "int32",
+                              "description": "contentSize"
+                            },
+                            "contentHash": {
+                              "type": "object",
+                              "properties": {
+                                "algorithm": {
+                                  "type": "string",
+                                  "description": "algorithm"
+                                },
+                                "value": {
+                                  "type": "string",
+                                  "description": "value"
+                                }
+                              },
+                              "description": "contentHash"
+                            }
+                          },
+                          "description": "outputsLink"
+                        },
+                        "startTime": {
+                          "type": "string",
+                          "description": "startTime"
+                        },
+                        "endTime": {
+                          "type": "string",
+                          "description": "endTime"
+                        },
+                        "originHistoryName": {
+                          "type": "string",
+                          "description": "originHistoryName"
+                        },
+                        "correlation": {
+                          "type": "object",
+                          "properties": {
+                            "clientTrackingId": {
+                              "type": "string",
+                              "description": "clientTrackingId"
+                            },
+                            "clientKeywords": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "description": "clientKeywords"
+                            }
+                          },
+                          "description": "correlation"
+                        },
+                        "status": {
+                          "type": "string",
+                          "description": "status"
+                        }
+                      },
+                      "description": "trigger"
+                    }
+                  },
+                  "description": "properties"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get Flow Run by RunID",
+        "operationId": "GetFlowRunByRunID",
+        "parameters": [
+          {
+            "name": "environment",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "flowid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "runid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "default": "2016-11-01"
+          }
+        ]
+      }
+    },
+    "/providers/Microsoft.ProcessSimple/environments/{environment}/flows/{flowid}": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "type"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "apiId": {
+                      "type": "string",
+                      "description": "apiId"
+                    },
+                    "displayName": {
+                      "type": "string",
+                      "description": "displayName"
+                    },
+                    "userType": {
+                      "type": "string",
+                      "description": "userType"
+                    },
+                    "definition": {
+                      "type": "object",
+                      "properties": {
+                        "$schema": {
+                          "type": "string",
+                          "description": "$schema"
+                        },
+                        "contentVersion": {
+                          "type": "string",
+                          "description": "contentVersion"
+                        },
+                        "parameters": {
+                          "type": "object",
+                          "properties": {
+                            "$connections": {
+                              "type": "object",
+                              "properties": {
+                                "defaultValue": {
+                                  "type": "object",
+                                  "properties": {},
+                                  "description": "defaultValue"
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "type"
+                                }
+                              },
+                              "description": "$connections"
+                            },
+                            "$authentication": {
+                              "type": "object",
+                              "properties": {
+                                "defaultValue": {
+                                  "type": "object",
+                                  "properties": {},
+                                  "description": "defaultValue"
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "type"
+                                }
+                              },
+                              "description": "$authentication"
+                            }
+                          },
+                          "description": "parameters"
+                        },
+                        "triggers": {
+                          "type": "object",
+                          "properties": {
+                            "manual": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "description": "type"
+                                },
+                                "kind": {
+                                  "type": "string",
+                                  "description": "kind"
+                                },
+                                "inputs": {
+                                  "type": "object",
+                                  "properties": {
+                                    "schema": {
+                                      "type": "object",
+                                      "properties": {
+                                        "type": {
+                                          "type": "string",
+                                          "description": "type"
+                                        },
+                                        "properties": {
+                                          "type": "object",
+                                          "properties": {},
+                                          "description": "properties"
+                                        },
+                                        "required": {
+                                          "type": "array",
+                                          "items": {},
+                                          "description": "required"
+                                        }
+                                      },
+                                      "description": "schema"
+                                    }
+                                  },
+                                  "description": "inputs"
+                                }
+                              },
+                              "description": "manual"
+                            }
+                          },
+                          "description": "triggers"
+                        },
+                        "actions": {
+                          "type": "object",
+                          "properties": {
+                            "Post_an_Adaptive_Card_to_a_Teams_user_and_wait_for_a_response": {
+                              "type": "object",
+                              "properties": {
+                                "runAfter": {
+                                  "type": "object",
+                                  "properties": {},
+                                  "description": "runAfter"
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "type"
+                                },
+                                "inputs": {
+                                  "type": "object",
+                                  "properties": {
+                                    "host": {
+                                      "type": "object",
+                                      "properties": {
+                                        "apiId": {
+                                          "type": "string",
+                                          "description": "apiId"
+                                        },
+                                        "connectionName": {
+                                          "type": "string",
+                                          "description": "connectionName"
+                                        },
+                                        "operationId": {
+                                          "type": "string",
+                                          "description": "operationId"
+                                        }
+                                      },
+                                      "description": "host"
+                                    },
+                                    "parameters": {
+                                      "type": "object",
+                                      "properties": {
+                                        "UserFlowContinuationSubscriptionRequest/body/recipient/to": {
+                                          "type": "string",
+                                          "description": "UserFlowContinuationSubscriptionRequest/body/recipient/to"
+                                        },
+                                        "UserFlowContinuationSubscriptionRequest/body/messageBody": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "description": "type"
+                                            },
+                                            "$schema": {
+                                              "type": "string",
+                                              "description": "$schema"
+                                            },
+                                            "version": {
+                                              "type": "string",
+                                              "description": "version"
+                                            },
+                                            "body": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "type": {
+                                                    "type": "string",
+                                                    "description": "type"
+                                                  },
+                                                  "text": {
+                                                    "type": "string",
+                                                    "description": "text"
+                                                  },
+                                                  "wrap": {
+                                                    "type": "boolean",
+                                                    "description": "wrap"
+                                                  },
+                                                  "size": {
+                                                    "type": "string",
+                                                    "description": "size"
+                                                  },
+                                                  "weight": {
+                                                    "type": "string",
+                                                    "description": "weight"
+                                                  },
+                                                  "items": {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string",
+                                                          "description": "type"
+                                                        },
+                                                        "text": {
+                                                          "type": "string",
+                                                          "description": "text"
+                                                        },
+                                                        "wrap": {
+                                                          "type": "boolean",
+                                                          "description": "wrap"
+                                                        },
+                                                        "actions": {
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                              "type": {
+                                                                "type": "string",
+                                                                "description": "type"
+                                                              },
+                                                              "title": {
+                                                                "type": "string",
+                                                                "description": "title"
+                                                              },
+                                                              "id": {
+                                                                "type": "string",
+                                                                "description": "id"
+                                                              }
+                                                            }
+                                                          },
+                                                          "description": "actions"
+                                                        }
+                                                      }
+                                                    },
+                                                    "description": "items"
+                                                  }
+                                                }
+                                              },
+                                              "description": "body"
+                                            }
+                                          },
+                                          "description": "UserFlowContinuationSubscriptionRequest/body/messageBody"
+                                        },
+                                        "UserFlowContinuationSubscriptionRequest/body/updateMessage": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "description": "type"
+                                            },
+                                            "body": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "type": {
+                                                    "type": "string",
+                                                    "description": "type"
+                                                  },
+                                                  "size": {
+                                                    "type": "string",
+                                                    "description": "size"
+                                                  },
+                                                  "weight": {
+                                                    "type": "string",
+                                                    "description": "weight"
+                                                  },
+                                                  "text": {
+                                                    "type": "string",
+                                                    "description": "text"
+                                                  },
+                                                  "columns": {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string",
+                                                          "description": "type"
+                                                        },
+                                                        "items": {
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                              "type": {
+                                                                "type": "string",
+                                                                "description": "type"
+                                                              },
+                                                              "style": {
+                                                                "type": "string",
+                                                                "description": "style"
+                                                              },
+                                                              "url": {
+                                                                "type": "string",
+                                                                "description": "url"
+                                                              },
+                                                              "size": {
+                                                                "type": "string",
+                                                                "description": "size"
+                                                              },
+                                                              "weight": {
+                                                                "type": "string",
+                                                                "description": "weight"
+                                                              },
+                                                              "text": {
+                                                                "type": "string",
+                                                                "description": "text"
+                                                              },
+                                                              "wrap": {
+                                                                "type": "boolean",
+                                                                "description": "wrap"
+                                                              },
+                                                              "spacing": {
+                                                                "type": "string",
+                                                                "description": "spacing"
+                                                              },
+                                                              "isSubtle": {
+                                                                "type": "boolean",
+                                                                "description": "isSubtle"
+                                                              }
+                                                            }
+                                                          },
+                                                          "description": "items"
+                                                        },
+                                                        "width": {
+                                                          "type": "string",
+                                                          "description": "width"
+                                                        }
+                                                      }
+                                                    },
+                                                    "description": "columns"
+                                                  },
+                                                  "wrap": {
+                                                    "type": "boolean",
+                                                    "description": "wrap"
+                                                  },
+                                                  "facts": {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "$data": {
+                                                          "type": "string",
+                                                          "description": "$data"
+                                                        },
+                                                        "title": {
+                                                          "type": "string",
+                                                          "description": "title"
+                                                        },
+                                                        "value": {
+                                                          "type": "string",
+                                                          "description": "value"
+                                                        }
+                                                      }
+                                                    },
+                                                    "description": "facts"
+                                                  }
+                                                }
+                                              },
+                                              "description": "body"
+                                            },
+                                            "actions": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "type": {
+                                                    "type": "string",
+                                                    "description": "type"
+                                                  },
+                                                  "title": {
+                                                    "type": "string",
+                                                    "description": "title"
+                                                  },
+                                                  "card": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "string",
+                                                        "description": "type"
+                                                      },
+                                                      "body": {
+                                                        "type": "array",
+                                                        "items": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "type": {
+                                                              "type": "string",
+                                                              "description": "type"
+                                                            },
+                                                            "id": {
+                                                              "type": "string",
+                                                              "description": "id"
+                                                            },
+                                                            "placeholder": {
+                                                              "type": "string",
+                                                              "description": "placeholder"
+                                                            },
+                                                            "isMultiline": {
+                                                              "type": "boolean",
+                                                              "description": "isMultiline"
+                                                            }
+                                                          }
+                                                        },
+                                                        "description": "body"
+                                                      },
+                                                      "actions": {
+                                                        "type": "array",
+                                                        "items": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "type": {
+                                                              "type": "string",
+                                                              "description": "type"
+                                                            },
+                                                            "title": {
+                                                              "type": "string",
+                                                              "description": "title"
+                                                            }
+                                                          }
+                                                        },
+                                                        "description": "actions"
+                                                      },
+                                                      "$schema": {
+                                                        "type": "string",
+                                                        "description": "$schema"
+                                                      }
+                                                    },
+                                                    "description": "card"
+                                                  },
+                                                  "url": {
+                                                    "type": "string",
+                                                    "description": "url"
+                                                  }
+                                                }
+                                              },
+                                              "description": "actions"
+                                            },
+                                            "$schema": {
+                                              "type": "string",
+                                              "description": "$schema"
+                                            },
+                                            "version": {
+                                              "type": "string",
+                                              "description": "version"
+                                            }
+                                          },
+                                          "description": "UserFlowContinuationSubscriptionRequest/body/updateMessage"
+                                        },
+                                        "UserFlowContinuationSubscriptionRequest/body/shouldUpdateCard": {
+                                          "type": "boolean",
+                                          "description": "UserFlowContinuationSubscriptionRequest/body/shouldUpdateCard"
+                                        }
+                                      },
+                                      "description": "parameters"
+                                    },
+                                    "authentication": {
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "string",
+                                          "description": "value"
+                                        },
+                                        "type": {
+                                          "type": "string",
+                                          "description": "type"
+                                        }
+                                      },
+                                      "description": "authentication"
+                                    }
+                                  },
+                                  "description": "inputs"
+                                }
+                              },
+                              "description": "Post_an_Adaptive_Card_to_a_Teams_user_and_wait_for_a_response"
+                            }
+                          },
+                          "description": "actions"
+                        }
+                      },
+                      "description": "definition"
+                    },
+                    "triggerSchema": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "description": "type"
+                        },
+                        "properties": {
+                          "type": "object",
+                          "properties": {},
+                          "description": "properties"
+                        },
+                        "required": {
+                          "type": "array",
+                          "items": {},
+                          "description": "required"
+                        }
+                      },
+                      "description": "triggerSchema"
+                    },
+                    "state": {
+                      "type": "string",
+                      "description": "state"
+                    },
+                    "connectionReferences": {
+                      "type": "object",
+                      "properties": {
+                        "shared_teams": {
+                          "type": "object",
+                          "properties": {
+                            "connectionName": {
+                              "type": "string",
+                              "description": "connectionName"
+                            },
+                            "source": {
+                              "type": "string",
+                              "description": "source"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "id"
+                            },
+                            "displayName": {
+                              "type": "string",
+                              "description": "displayName"
+                            },
+                            "iconUri": {
+                              "type": "string",
+                              "description": "iconUri"
+                            },
+                            "brandColor": {
+                              "type": "string",
+                              "description": "brandColor"
+                            },
+                            "tier": {
+                              "type": "string",
+                              "description": "tier"
+                            }
+                          },
+                          "description": "shared_teams"
+                        }
+                      },
+                      "description": "connectionReferences"
+                    },
+                    "installedConnectionReferences": {
+                      "type": "object",
+                      "properties": {
+                        "shared_teams": {
+                          "type": "object",
+                          "properties": {
+                            "connectionName": {
+                              "type": "string",
+                              "description": "connectionName"
+                            },
+                            "apiDefinition": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "description": "name"
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "description": "id"
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "type"
+                                },
+                                "properties": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "description": "displayName"
+                                    },
+                                    "iconUri": {
+                                      "type": "string",
+                                      "description": "iconUri"
+                                    },
+                                    "purpose": {
+                                      "type": "string",
+                                      "description": "purpose"
+                                    },
+                                    "connectionParameters": {
+                                      "type": "object",
+                                      "properties": {
+                                        "token": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "description": "type"
+                                            },
+                                            "oAuthSettings": {
+                                              "type": "object",
+                                              "properties": {
+                                                "identityProvider": {
+                                                  "type": "string",
+                                                  "description": "identityProvider"
+                                                },
+                                                "clientId": {
+                                                  "type": "string",
+                                                  "description": "clientId"
+                                                },
+                                                "scopes": {
+                                                  "type": "array",
+                                                  "items": {
+                                                    "type": "string"
+                                                  },
+                                                  "description": "scopes"
+                                                },
+                                                "redirectMode": {
+                                                  "type": "string",
+                                                  "description": "redirectMode"
+                                                },
+                                                "redirectUrl": {
+                                                  "type": "string",
+                                                  "description": "redirectUrl"
+                                                },
+                                                "properties": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "IsFirstParty": {
+                                                      "type": "string",
+                                                      "description": "IsFirstParty"
+                                                    },
+                                                    "AzureActiveDirectoryResourceId": {
+                                                      "type": "string",
+                                                      "description": "AzureActiveDirectoryResourceId"
+                                                    }
+                                                  },
+                                                  "description": "properties"
+                                                },
+                                                "customParameters": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "resourceUri": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "value": {
+                                                          "type": "string",
+                                                          "description": "value"
+                                                        }
+                                                      },
+                                                      "description": "resourceUri"
+                                                    },
+                                                    "loginUri": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "value": {
+                                                          "type": "string",
+                                                          "description": "value"
+                                                        }
+                                                      },
+                                                      "description": "loginUri"
+                                                    },
+                                                    "loginUriAAD": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "value": {
+                                                          "type": "string",
+                                                          "description": "value"
+                                                        }
+                                                      },
+                                                      "description": "loginUriAAD"
+                                                    }
+                                                  },
+                                                  "description": "customParameters"
+                                                }
+                                              },
+                                              "description": "oAuthSettings"
+                                            }
+                                          },
+                                          "description": "token"
+                                        },
+                                        "token:TenantId": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "description": "type"
+                                            },
+                                            "metadata": {
+                                              "type": "object",
+                                              "properties": {
+                                                "sourceType": {
+                                                  "type": "string",
+                                                  "description": "sourceType"
+                                                }
+                                              },
+                                              "description": "metadata"
+                                            },
+                                            "uiDefinition": {
+                                              "type": "object",
+                                              "properties": {
+                                                "displayName": {
+                                                  "type": "string",
+                                                  "description": "displayName"
+                                                },
+                                                "description": {
+                                                  "type": "string",
+                                                  "description": "description"
+                                                },
+                                                "constraints": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "required": {
+                                                      "type": "string",
+                                                      "description": "required"
+                                                    },
+                                                    "hidden": {
+                                                      "type": "string",
+                                                      "description": "hidden"
+                                                    }
+                                                  },
+                                                  "description": "constraints"
+                                                }
+                                              },
+                                              "description": "uiDefinition"
+                                            }
+                                          },
+                                          "description": "token:TenantId"
+                                        }
+                                      },
+                                      "description": "connectionParameters"
+                                    },
+                                    "scopes": {
+                                      "type": "object",
+                                      "properties": {
+                                        "will": {
+                                          "type": "array",
+                                          "items": {},
+                                          "description": "will"
+                                        },
+                                        "wont": {
+                                          "type": "array",
+                                          "items": {},
+                                          "description": "wont"
+                                        }
+                                      },
+                                      "description": "scopes"
+                                    },
+                                    "runtimeUrls": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "description": "runtimeUrls"
+                                    },
+                                    "primaryRuntimeUrl": {
+                                      "type": "string",
+                                      "description": "primaryRuntimeUrl"
+                                    },
+                                    "metadata": {
+                                      "type": "object",
+                                      "properties": {
+                                        "source": {
+                                          "type": "string",
+                                          "description": "source"
+                                        },
+                                        "brandColor": {
+                                          "type": "string",
+                                          "description": "brandColor"
+                                        },
+                                        "useNewApimVersion": {
+                                          "type": "string",
+                                          "description": "useNewApimVersion"
+                                        },
+                                        "version": {
+                                          "type": "object",
+                                          "properties": {
+                                            "previous": {
+                                              "type": "string",
+                                              "description": "previous"
+                                            },
+                                            "current": {
+                                              "type": "string",
+                                              "description": "current"
+                                            }
+                                          },
+                                          "description": "version"
+                                        }
+                                      },
+                                      "description": "metadata"
+                                    },
+                                    "capabilities": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "description": "capabilities"
+                                    },
+                                    "tier": {
+                                      "type": "string",
+                                      "description": "tier"
+                                    },
+                                    "isCustomApi": {
+                                      "type": "boolean",
+                                      "description": "isCustomApi"
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "description": "description"
+                                    },
+                                    "createdTime": {
+                                      "type": "string",
+                                      "description": "createdTime"
+                                    },
+                                    "changedTime": {
+                                      "type": "string",
+                                      "description": "changedTime"
+                                    }
+                                  },
+                                  "description": "properties"
+                                }
+                              },
+                              "description": "apiDefinition"
+                            },
+                            "source": {
+                              "type": "string",
+                              "description": "source"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "id"
+                            },
+                            "displayName": {
+                              "type": "string",
+                              "description": "displayName"
+                            },
+                            "iconUri": {
+                              "type": "string",
+                              "description": "iconUri"
+                            },
+                            "brandColor": {
+                              "type": "string",
+                              "description": "brandColor"
+                            },
+                            "tier": {
+                              "type": "string",
+                              "description": "tier"
+                            }
+                          },
+                          "description": "shared_teams"
+                        }
+                      },
+                      "description": "installedConnectionReferences"
+                    },
+                    "createdTime": {
+                      "type": "string",
+                      "description": "createdTime"
+                    },
+                    "lastModifiedTime": {
+                      "type": "string",
+                      "description": "lastModifiedTime"
+                    },
+                    "flowSuspensionReason": {
+                      "type": "string",
+                      "description": "flowSuspensionReason"
+                    },
+                    "environment": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "type"
+                        },
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        }
+                      },
+                      "description": "environment"
+                    },
+                    "definitionSummary": {
+                      "type": "object",
+                      "properties": {
+                        "triggers": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "description": "type"
+                              },
+                              "kind": {
+                                "type": "string",
+                                "description": "kind"
+                              }
+                            }
+                          },
+                          "description": "triggers"
+                        },
+                        "actions": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "description": "type"
+                              },
+                              "swaggerOperationId": {
+                                "type": "string",
+                                "description": "swaggerOperationId"
+                              }
+                            }
+                          },
+                          "description": "actions"
+                        }
+                      },
+                      "description": "definitionSummary"
+                    },
+                    "creator": {
+                      "type": "object",
+                      "properties": {
+                        "tenantId": {
+                          "type": "string",
+                          "description": "tenantId"
+                        },
+                        "objectId": {
+                          "type": "string",
+                          "description": "objectId"
+                        },
+                        "userId": {
+                          "type": "string",
+                          "description": "userId"
+                        },
+                        "userType": {
+                          "type": "string",
+                          "description": "userType"
+                        }
+                      },
+                      "description": "creator"
+                    },
+                    "flowTriggerUri": {
+                      "type": "string",
+                      "description": "flowTriggerUri"
+                    },
+                    "installationStatus": {
+                      "type": "string",
+                      "description": "installationStatus"
+                    },
+                    "provisioningMethod": {
+                      "type": "string",
+                      "description": "provisioningMethod"
+                    },
+                    "flowFailureAlertSubscribed": {
+                      "type": "boolean",
+                      "description": "flowFailureAlertSubscribed"
+                    },
+                    "referencedResources": {
+                      "type": "array",
+                      "items": {},
+                      "description": "referencedResources"
+                    }
+                  },
+                  "description": "properties"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get Flow Details",
+        "description": "Gets details of Flow",
+        "operationId": "GetFlowDetails",
+        "parameters": [
+          {
+            "name": "environment",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "flowid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "default": "2016-11-01"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "undefined": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://login.windows.net/common/oauth2/authorize",
+      "tokenUrl": "https://login.windows.net/common/oauth2/authorize",
+      "scopes": {}
+    }
+  },
+  "security": [
+    {
+      "undefined": []
+    }
+  ],
+  "tags": []
+}
